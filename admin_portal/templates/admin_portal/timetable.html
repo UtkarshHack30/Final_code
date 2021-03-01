@@ -1,0 +1,78 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Timetables</title>
+    <script src="https://kit.fontawesome.com/f91dab228a.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="{% static '/css/tt.css' %}" type="text/css" >
+
+</head>
+
+<body>
+    <header>
+        <div>
+            <h2>Admin Portal</h2>
+        </div>
+
+        <p> Welcome Admin </p>
+
+    </header> 
+
+
+    <div class="nav">
+        <div class="tabs">
+            <div id="nav-box">
+                <a class="current" href="{% url 'admin_portal:home' %}"><div >Class Links</div></a>
+                <a href="{% url 'admin_portal:timetable' %}"><div>Timetables</div></a>
+                <a href="{% url 'admin_portal:notice' %}"><div>Noticeboard</div></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">    
+
+            <div class="cont">
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item">
+                    Class 1
+                    <button class="tt-btn" style="width:200px;"><a href="{% url 'admin_portal:update_tt' object_list.0.id  %}" >Add/Update Timetable</a></button>    
+                    
+                    </li>
+                    
+                </ul>
+                <ul class="list-group list-group-horizontal-sm">
+                    <li class="list-group-item">
+                        Class 2
+                        <button class="tt-btn" style="width:200px;"><a href="{% url 'admin_portal:update_tt' object_list.1.id  %}" >Add/Update Timetable</a></button>    
+                    
+                    </li>
+                </ul>
+                <ul class="list-group list-group-horizontal-md">
+                    <li class="list-group-item">
+                        Class 3
+                        <button class="tt-btn" style="width:200px;"><a href="{% url 'admin_portal:update_tt' object_list.2.id  %}" >Add/Update Timetable</a></button>    
+                    
+                    </li>
+                </ul>
+                <ul class="list-group list-group-horizontal-md">
+                    <li class="list-group-item">
+                        Class 4
+                        <button class="tt-btn" style="width:200px;"><a href="{% url 'admin_portal:update_tt' object_list.3.id  %}" >Add/Update Timetable</a></button>    
+                    
+                    </li>
+                </ul>
+            </div>
+                
+    </div>
+
+</body>
+</html>
+
+

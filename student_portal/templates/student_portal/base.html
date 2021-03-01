@@ -1,0 +1,66 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+    <link href="{% static '/portfolio/CSS/about.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static '/student/base.css' %}" type="text/css" >
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="log">
+                <a href="{% url 'student_portal:logout' %}" >logout</a>
+            </div>
+            <div>
+                <h2>Student Portal</h2>
+            </div>
+
+        </div>
+        
+
+        <p> {{ student.user.username }}, Class {{ student.std }} </p>
+
+    </header> 
+
+
+    <div class="nav">
+        <div class="tabs">
+            <div id="nav-box">
+                <a class="current" href="{% url 'student_portal:home' request.user.id %}"><div >Timetable</div></a>
+                <a href="{% url 'student_portal:notice' %}"><div>Noticeboard</div></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">    
+        <div>
+            <h3>Class Link : <span><a href="{{ link.link_url }}">{{ link.link_url }}</a></span></h3>
+        </div>
+
+        <h3>Timetable</h3>
+        
+            {% if timetable.image %}
+                <img src="{{ timetable.image.url }}" id="tt_pic" width=500px height=auto ><br>
+
+            {% else %}
+
+                <h3> Timetable not yet uploaded by the Admin</h3>
+
+            {% endif %}
+            
+             
+    </div>
+
+
+
+</body>
+</html>

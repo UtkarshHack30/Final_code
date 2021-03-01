@@ -1,0 +1,66 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticeboard</title>
+    <link href="{% static '/portfolio/CSS/about.css' %}" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/f91dab228a.js"></script>
+    <link rel="stylesheet" href="{% static '/student/notice.css' %}" type="text/css" >
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="log">
+                <a href="{% url 'student_portal:logout' %}" >logout</a>
+            </div>
+            <div>
+                <h2>Student Portal</h2>
+            </div>
+
+        </div>
+        
+
+        <p> {{ student.user.username }}, Class {{ student.std }} </p>
+
+    </header> 
+
+
+    <div class="nav">
+        <div class="tabs">
+            <div id="nav-box">
+                <a class="current" href="{% url 'student_portal:home' request.user.id %}"><div >Timetable</div></a>
+                <a href="{% url 'student_portal:notice' %}"><div>Noticeboard</div></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">    
+        <div>
+            <h1>Noticeboard</h1>
+            <div class="board" ">  
+
+                 <ul>
+                    {% for notice in object_list %}
+                    <li>
+                        <h3>{{ notice.mssg }} </h3>
+
+                    </li>
+                    {% endfor %}
+
+                </ul>                        
+
+            </div>
+                
+        </div>
+             
+    </div>
+
+</body>
+</html>
